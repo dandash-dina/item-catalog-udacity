@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row banner main">
+	<div class="col padding-none">
+		<h1 class="padding-top">Cars Free Marketing</h1>
+	</div>
+</div>
+	<div class="row banner menu">
+		<div class="col">
+			<h2>Edit Menu Item</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 margin-left padding-top">
+			<form action="#" method = "post">
+				<div class="margin-bottom">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{item.name }}">
+
+					<label for="color">Color:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="color">{{item.color}}</textarea>
+
+					<label for="price">Price:</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="text" maxlength="10" class="form-control" name="price" value="{{item.price}}">
+					</div>
+					<label for="brand">Brand:</label>
+					<div >
+						<select class="form-control" name='brand'>
+							<option value='Volvo' {% if item.brand == 'Volvo'%}selected{%endif%}>Volvo</option>
+							<option value='BMW' {% if item.brand == 'BMW'%}selected{%endif%}>BMW</option>
+							<option value='Audi' {% if item.brand == 'Audi'%}selected{%endif%}>Audi</option>
+							<option value='Ford' {% if item.brand == 'Ford'%}selected{%endif%}>Ford</option>
+							<option value='Honda' {% if item.brand == 'Honda'%}selected{%endif%}>Honda</option>
+							<option value='Toyota' {% if item.brand == 'Toyota'%}selected{%endif%}>Toyota</option>
+						</select>
+					</div>
+					<div class="padding-top padding-buttom"></div>
+					<button type="submit" class="btn " id="submit" >Save</button>
+					<a href = '{{url_for('showCatalogs')}}'>
+						<button type="button" class="btn delete">Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row banner main">
+	<div class="col padding-none">
+		<h1 class="padding-top">Cars Free Marketing</h1>
+	</div>
+</div>
+	<div class="row banner menu">
+		<div class="col">
+			<h2>New Menu Item</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 margin-left padding-top">
+			<form action="#" method = "post">
+				<div class="margin-bottom">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the car" required>
+
+					<label for="color">Color:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="color" placeholder="Color of the car" required></textarea>
+
+					<label for="price">Price:</label>
+					<div class="input-group">
+						<div class="input-group-addon">$</div>
+						<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price in $" required>
+					</div>
+					<label for="brand">Brand:</label>
+					<div >
+						<select class="form-control" name='brand'>
+					    <option value='Volvo'>Volvo</option>
+							<option value='BMW'>BMW</option>
+							<option value='Audi'>Audi</option>
+							<option value='Ford'>Ford</option>
+							<option value='Honda'>Honda</option>
+							<option value='Toyota'>Toyota</option>
+						</select>
+					</div>
+					<div class="padding-top padding-buttom"></div>
+					<button type="submit" class="btn">
+				  Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

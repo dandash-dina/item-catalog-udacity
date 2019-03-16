@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row banner main">
+	<div class="col padding-none">
+		<h1 class="padding-top">Cars Free Marketing</h1>
+	</div>
+</div>
+	<div class="row banner menu">
+		<div class="col">
+			<h2>Edit {{catalog.name}}</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 margin-left padding-top">
+			<form action="{{ url_for('editCatalog',catalog_id = catalog.id)}}" method = "post">
+				<div class=="margin-bottom">
+					<label for="name">Name:</label>
+					<input type ="text" class=="margin-bottom" name="name" value="{{catalog.name }}">
+					<div class="padding-bottom"></div>
+					<button type="submit" class="btn" id="submit">Save</button>
+					<a href = '{{url_for('showCatalogs')}}'>
+						<button type="button" class="btn delete">Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

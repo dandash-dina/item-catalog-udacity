@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row banner main">
+	<div class="col padding-none">
+		<h1 class="padding-top">Cars Free Marketing</h1>
+	</div>
+</div>
+	<div class="row banner menu">
+		<div class="col">
+			<h2>New Car Agency</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 margin-left padding-top">
+			<form action="#" method = "post">
+				<div class="margin-bottom">
+				<label for="name">Name:</label>
+				<input type ="text" class="margin-button" maxlength="100" name="name" required>
+				<div class="padding-bottom"></div>
+				<button type="submit" class="btn" id="submit">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

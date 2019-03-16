@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row">
+	<div class="row banner main">
+		<div class="col padding-none">
+			<h1 class="padding-top">Cars Free Marketing</h1>
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+<div class="col padding-top padding-bottom"></div>
+	<div>
+			<a href="{{url_for('newCatalog')}}">
+				<button class="btn">
+					Add Car Agency
+				</button>
+			</a>
+	</div>
+<div class="col padding-top padding-bottom"></div>
+	{% for catalog in catalogs %}
+		<a href = "{{url_for('showMenu', catalog_id = catalog.id)}}">
+			<div class="row">
+					<div class="col padding-div background-div">
+						<h3>{{catalog.name}}</h3>
+					</div>
+					<div class="col padding-top padding-bottom"></div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}

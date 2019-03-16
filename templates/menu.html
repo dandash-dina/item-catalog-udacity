@@ -1,0 +1,188 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row banner main">
+	<div class="col padding-none">
+		<h1 class="padding-top">Cars Free Marketing</h1>
+	</div>
+</div>
+	<div class="row banner menu">
+		<div class="col">
+			<h2>{{ catalog.name }}
+			<figure class="creator">
+				<img src="{{ creator.picture }}">
+				<figcaption>{{ creator.name }}</figcaption>
+			</figure>
+			</h2>
+
+		</div>
+	</div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	<div class="row padding-top padding-bottom">
+			<a href="{{url_for('editCatalog', catalog_id = catalog.id )}}">
+				<button class="btn">Edit Car Agency
+				</button>
+			</a>
+			<a href="{{url_for('newMenuItem', catalog_id = catalog.id )}}">
+				<button class="btn">Add Car
+				</button>
+			</a>
+						<a href="{{url_for('deleteCatalog', catalog_id = catalog.id )}}">
+				<button class="btn delete">Delete Agency
+				</button>
+			</a>
+	</div>
+
+	{% if items !=[] %}
+	<div class="row">
+
+			<div class="col">
+					{% set ns = namespace(found=false) %}
+					{% for i in items %}
+					  {% if 'Volvo' in i.brand and not ns.found %}
+						  {% set ns.found = true %}
+						  <h2>Volvo</h2>
+
+						{% endif %}
+					{% endfor %}
+
+						{% for i in items %}
+							{% if i.brand == 'Volvo' %}
+								<div class="col padding-div background-div">
+									<h3>{{i.name}}</h3>
+									<p>{{i.color}}</p>
+									<p class="menu-price">{{i.price}}</p>
+									<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+									<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+								</div>
+							{% endif %}
+						{% endfor %}
+			</div>
+
+			<div class="col">
+				{% set ns = namespace(found=false) %}
+				{% for i in items %}
+					{% if 'BMW' in i.brand and not ns.found %}
+						{% set ns.found = true %}
+						<h2>BMW</h2>
+
+					{% endif %}
+				{% endfor %}
+
+					{% for i in items %}
+						{% if i.brand == 'BMW' %}
+						<div class="col padding-div background-div">
+							<h3>{{i.name}}</h3>
+							<p>{{i.color}}</p>
+							<p class="menu-price">{{i.price}}</p>
+							<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+							<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+						{% endif %}
+					{% endfor %}
+					  </div>
+			</div>
+
+			<div class="col">
+				{% set ns = namespace(found=false) %}
+				{% for i in items %}
+					{% if 'Audi' in i.brand and not ns.found %}
+						{% set ns.found = true %}
+						<h2>Audi</h2>
+
+					{% endif %}
+				{% endfor %}
+					{% for i in items %}
+						{% if i.brand == 'Audi' %}
+						<div class="col padding-div background-div">
+							<h3>{{i.name}}</h3>
+							<p>{{i.color}}</p>
+							<p class="menu-price">{{i.price}}</p>
+							<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+							<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+
+			<div class="col">
+					{% set ns = namespace(found=false) %}
+					{% for i in items %}
+						{% if 'Ford' in i.brand and not ns.found %}
+							{% set ns.found = true %}
+							<h2>Ford</h2>
+
+						{% endif %}
+					{% endfor %}
+					{% for i in items %}
+						{% if i.brand == 'Ford' %}
+						<div class="col padding-div background-div">
+							<h3>{{i.name}}</h3>
+							<p>{{i.color}}</p>
+							<p class="menu-price">{{i.price}}</p>
+							<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+							<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+
+			<div class="col">
+					{% set ns = namespace(found=false) %}
+					{% for i in items %}
+						{% if 'Honda' in i.brand and not ns.found %}
+							{% set ns.found = true %}
+							<h2>Honda</h2>
+
+						{% endif %}
+					{% endfor %}
+					{% for i in items %}
+						{% if i.brand == 'Honda' %}
+						<div class="col padding-div background-div">
+							<h3>{{i.name}}</h3>
+							<p>{{i.color}}</p>
+							<p class="menu-price">{{i.price}}</p>
+							<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+							<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+
+		  <div class="col">
+			 {% set ns = namespace(found=false) %}
+			 {% for i in items %}
+				 {% if 'Toyota' in i.brand and not ns.found %}
+					 {% set ns.found = true %}
+					 <h2>Toyota</h2>
+
+				 {% endif %}
+			 {% endfor %}
+					{% for i in items %}
+						{% if i.brand == 'Toyota' %}
+						<div class="col padding-div background-div">
+							<h3>{{i.name}}</h3>
+							<p>{{i.color}}</p>
+							<p class="menu-price">{{i.price}}</p>
+							<a href="{{url_for('editMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Edit</a> |
+							<a href="{{url_for('deleteMenuItem', catalog_id = catalog.id, menu_id=i.id)}}">Delete</a>
+						</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			
+		</div>
+	{% endif %}
+{% endblock %}
